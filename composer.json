@@ -1,5 +1,5 @@
 {
-  "name": "devgeniem/wp-sanitize-accented-uploads",
+  "name": "devgeniem/wp-multisite-tld-changer",
   "type": "wordpress-muplugin",
   "license": "MIT",
   "description": "Replaces accents from future uploads and has wp-cli command which you can use to sanitize current content.",
