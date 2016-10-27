@@ -4,7 +4,7 @@
 
 This WordPress multisite plugin allows you to create subsites under different domain than the mainsite.
 
-This plugin allows the mainsite of multisite to be in different domain like `client.your-cloud.com` and subsites like `site.client.com`.
+This plugin allows the mainsite of multisite to be like `client.your-domain.com` and subsites in different domain like `site.client.com`.
 
 ## Example use case
 
