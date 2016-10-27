@@ -14,13 +14,13 @@ If you want to use `*.client.com` namespace by default this plugin can help you.
 This plugin allows the mainsite of multisite to be in different domain like `client.your-cloud.com`.
 
 ## Installation
-```
+```bash
 $ composer require devgeniem/wp-multisite-tld-changer
 ```
 
 ## Configuration
 This forces the tld domain of new site to be different than the default domain:
-```
+```php
 define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
 ```
 
