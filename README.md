@@ -48,6 +48,9 @@ This forces the tld domain of all created sites to be `client.com` instead than 
 define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
 ```
 
+## Requirements
+This uses needs [PHP intl extension](http://php.net/manual/en/book.intl.php).
+
 ## Maintainers
 [Onni Hakala](https://github.com/onnimonni)
 
