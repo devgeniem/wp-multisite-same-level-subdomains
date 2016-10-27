@@ -1,0 +1,23 @@
+{
+  "name": "devgeniem/wp-sanitize-accented-uploads",
+  "type": "wordpress-muplugin",
+  "license": "MIT",
+  "description": "Replaces accents from future uploads and has wp-cli command which you can use to sanitize current content.",
+  "homepage": "https://github.com/devgeniem/wp-multisite-tld-changer",
+  "authors": [
+    {
+      "name": "Onni Hakala",
+      "email": "onni.hakala@geniem.com",
+      "homepage": "https://github.com/onnimonni",
+      "role": "developer"
+    }
+  ],
+  "keywords": [
+    "wordpress","multisite","subdomain","alternative","tld"
+  ],
+  "require": {
+    "php": ">=5.6",
+    "composer/installers": "^v1.2",
+    "layershifter/tld-extract": "^1.1"
+  }
+}
