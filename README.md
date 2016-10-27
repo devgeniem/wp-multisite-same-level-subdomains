@@ -4,7 +4,7 @@
 
 This WordPress multisite plugin allows you to create subsites under different domain than the mainsite.
 
-**For example:**
+**Use case:**
 You want to create subdomain multisite which creates sites under `client.com` domain. Site could be `example.client.com`.
 But `client.com` domain is simultaneously used elsewhere for non-WordPress site.
 
@@ -20,6 +20,29 @@ $ composer require devgeniem/wp-multisite-tld-changer
 ```
 
 ## Configuration
+We recommend dropping This plugin directory into your mu-plugins directory.
+
+Then create a wp-content/sunrise.php file with the following:
+
+```php
+<?php
+// Default mu-plugins directory if you haven't set it
+defined( 'WPMU_PLUGIN_DIR' ) or define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' );
+
+require WPMU_PLUGIN_DIR . '/wp-multisite-tld-changer/wp-multisite-tld-changer.php';
+```
+
+Additionally, in order for sunrise.php to be loaded, you must add the following to your wp-config.php:
+```
+define('SUNRISE', true);
+```
+
+Finally add your preferred domain into your wp-config.php:
+```
+define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
+```
+
+## Variables
 This forces the tld domain of all created sites to be `client.com` instead than the default domain:
 ```php
 define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');

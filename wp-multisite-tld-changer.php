@@ -7,7 +7,7 @@
  * Author URI: https://github.com/onnimonni
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
- * Version: 1.0
+ * Version: 1.1
  */
 
 namespace Geniem\Multisite;
@@ -20,22 +20,33 @@ use LayerShifter\TLDExtract\Extract;
  * and replaces the created blog with another domain
  */
 class TLDChanger {
+
+    // Only init this plugin once
+    static $started = false;
+
     /**
      * Adds hooks into WP and creates needed settings
      */
     static function init() {
-        $current_tld = self::get_tld( $_SERVER['HTTP_HOST'] );
-        $default_tld = self::get_tld( DOMAIN_CURRENT_SITE );
 
-        // Override cookie domain for domains which are not under DOMAIN_CURRENT_SITE
-        if ( $current_tld !=  $default_tld ) {
-            define( 'COOKIE_DOMAIN', '.' . $current_tld );
+        # Only run these hooks once
+        if (! self::$started) {
+            $current_tld = self::get_tld( $_SERVER['HTTP_HOST'] );
+            $default_tld = self::get_tld( DOMAIN_CURRENT_SITE );
+
+            // Override cookie domain for domains which are not under DOMAIN_CURRENT_SITE
+            if ( $current_tld !=  $default_tld ) {
+                define( 'COOKIE_DOMAIN', '.' . $current_tld );
+            }
+
+            // Hook into new blog creation
+            add_action( 'wpmu_new_blog', [ __CLASS__, 'change_new_blog_domain_name' ], 10, 3 );
+
+            add_action( 'network_site_new_form', [ __CLASS__, 'change_tld_with_javascript' ] );
+
+            // Init is ready
+            self::$started = true;
         }
-
-        // Hook into new blog creation
-        add_action( 'wpmu_new_blog', [ __CLASS__, 'change_new_blog_domain_name' ], 10, 3 );
-
-        add_action( 'network_site_new_form', [ __CLASS__, 'change_tld_with_javascript' ] );
     }
 
     /**
