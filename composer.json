@@ -17,7 +17,7 @@
   ],
   "require": {
     "php": ">=5.6",
-    "composer/installers": "^v1.2",
+    "composer/installers": "^v1.0.12",
     "layershifter/tld-extract": "^1.1"
   }
 }
