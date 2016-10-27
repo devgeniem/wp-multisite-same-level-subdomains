@@ -7,7 +7,9 @@ This plugin allows you to create subsites under different domain than the mainsi
 You want to create subdomain multisite which creates sites under `client.com` domain. Site could be `example.client.com`.
 But `client.com` domain is simultaneously used elsewhere for non-WordPress site.
 
-This can lead to tricky situation which you can fix with mercator or domain mapping. But if you only want to use `*.client.com` namespace this plugin can help you.
+This can lead to tricky situation which you can fix with mercator or domain mapping.
+
+If you want to use `*.client.com` namespace by default this plugin can help you.
 
 This plugin allows the mainsite of multisite to be in different domain like `client.your-cloud.com`.
 
@@ -21,6 +23,9 @@ This forces the tld domain of new site to be different than the default domain:
 ```
 define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
 ```
+
+## Maintainers
+[Onni Hakala](https://github.com/onnimonni)
 
 ## License
 MIT
