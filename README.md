@@ -2,7 +2,7 @@
 # WP Plugin: Multisite TLD Changer
 [![Latest Stable Version](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/v/stable)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer) [![Total Downloads](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/downloads)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer) [![Latest Unstable Version](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/v/unstable)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer) [![License](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/license)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer)
 
-This plugin allows you to create subsites under different domain than the mainsite.
+This WordPress multisite plugin allows you to create subsites under different domain than the mainsite.
 
 **For example:**
 You want to create subdomain multisite which creates sites under `client.com` domain. Site could be `example.client.com`.
