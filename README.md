@@ -19,7 +19,7 @@ $ composer require devgeniem/wp-multisite-tld-changer
 ```
 
 ## Configuration
-This forces the tld domain of new site to be different than the default domain:
+This forces the tld domain of all created sites to be `client.com` instead than the default domain:
 ```php
 define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
 ```
