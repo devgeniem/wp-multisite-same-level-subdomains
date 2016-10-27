@@ -49,7 +49,7 @@ define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
 ```
 
 ## Requirements
-This uses needs [PHP intl extension](http://php.net/manual/en/book.intl.php).
+This uses [layershifter/tld-extract](https://github.com/layershifter/TLDExtract) which needs [PHP intl extension](http://php.net/manual/en/book.intl.php).
 
 ## Maintainers
 [Onni Hakala](https://github.com/onnimonni)
