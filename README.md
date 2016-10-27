@@ -11,7 +11,7 @@ This plugin allows the mainsite of multisite to be like `client.your-domain.com`
 We needed to create subdomain multisite which uses subdomains under `client.com` domain for example `site.client.com`.
 In this case `client.com` domain was simultaneously used elsewhere for non-WordPress site so that couldn't be the domain of the main site.
 
-We created this plugin in order to use custom domain for the main site and to allow client to automatically add all of the new sites into `*.client.com namespace.
+We created this plugin in order to use custom domain for the main site and to allow client to automatically create new sites into `*.client.com` namespace.
 
 ## Installation
 ```bash
