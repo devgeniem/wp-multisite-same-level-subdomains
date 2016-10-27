@@ -20,7 +20,7 @@ $ composer require devgeniem/wp-multisite-tld-changer
 ```
 
 ## Configuration
-We recommend dropping This plugin directory into your mu-plugins directory.
+We recommend installing this plugin with composer or dropping it the plugin directory into your mu-plugins directory.
 
 Then create a wp-content/sunrise.php file with the following:
 
