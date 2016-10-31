@@ -37,6 +37,11 @@ class SameLevelSubdomain {
 
             // Init is ready
             self::$started = true;
+
+            // Set multisite cookies into upper level domain
+            if ( ! defined( 'COOKIE_DOMAIN' ) ) {
+                define( 'COOKIE_DOMAIN', '.' . self::get_multisite_tld() );
+            }
         }
     }
 
