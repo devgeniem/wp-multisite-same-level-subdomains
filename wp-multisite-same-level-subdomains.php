@@ -7,7 +7,7 @@
  * Author URI: https://github.com/onnimonni
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
- * Version: 1.2
+ * Version: 2.1
  */
 
 namespace Geniem\Multisite;
