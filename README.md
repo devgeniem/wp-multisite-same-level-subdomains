@@ -1,21 +1,19 @@
 ![geniem-github-banner](https://cloud.githubusercontent.com/assets/5691777/14319886/9ae46166-fc1b-11e5-9630-d60aa3dc4f9e.png)
-# WP Plugin: Multisite TLD Changer
-[![Latest Stable Version](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/v/stable)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer) [![Total Downloads](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/downloads)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer) [![Latest Unstable Version](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/v/unstable)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer) [![License](https://poser.pugx.org/devgeniem/wp-multisite-tld-changer/license)](https://packagist.org/packages/devgeniem/wp-multisite-tld-changer)
+# WP Plugin: Same level subdomains for multisites
+[![Latest Stable Version](https://poser.pugx.org/devgeniem/wp-multisite-same-level-subdomains/v/stable)](https://packagist.org/packages/devgeniem/wp-multisite-same-level-subdomains) [![Total Downloads](https://poser.pugx.org/devgeniem/wp-multisite-same-level-subdomains/downloads)](https://packagist.org/packages/devgeniem/wp-multisite-same-level-subdomains) [![Latest Unstable Version](https://poser.pugx.org/devgeniem/wp-multisite-same-level-subdomains/v/unstable)](https://packagist.org/packages/devgeniem/wp-multisite-same-level-subdomains) [![License](https://poser.pugx.org/devgeniem/wp-multisite-same-level-subdomains/license)](https://packagist.org/packages/devgeniem/wp-multisite-same-level-subdomains)
 
-This WordPress multisite plugin allows you to create subsites under different domain than the mainsite.
-
-This plugin allows the mainsite of multisite to be like `client.your-domain.com` and subsites to be under a different domain like `site.client.com`.
+This WordPress multisite plugin allows you to create subsites under the same subdomain depth as the main site.
 
 ## Example use case
 
-We needed to create subdomain multisite which uses subdomains under `client.com` domain for example `site.client.com`.
+We needed to create subdomain multisite which uses only subdomains under `*.client.com` and nothing else.
 In this case `client.com` domain was simultaneously used elsewhere for non-WordPress site so that couldn't be the domain of the main site.
 
-We created this plugin in order to use custom domain for the main site and to allow client to automatically create new sites into `*.client.com` namespace.
+We created this plugin in order to use `admin.client.com` as the main site and `site1.client.com`, `site2.client.com` for the subsites respectively.
 
 ## Installation
 ```bash
-$ composer require devgeniem/wp-multisite-tld-changer
+$ composer require devgeniem/wp-multisite-same-level-subdomains
 ```
 
 ## Configuration
@@ -28,27 +26,24 @@ Then create a wp-content/sunrise.php file with the following:
 // Default mu-plugins directory if you haven't set it
 defined( 'WPMU_PLUGIN_DIR' ) or define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' );
 
-require WPMU_PLUGIN_DIR . '/wp-multisite-tld-changer/wp-multisite-tld-changer.php';
+require WPMU_PLUGIN_DIR . '/wp-multisite-same-level-subdomains/wp-multisite-same-level-subdomains.php';
 ```
 
 Additionally, in order for sunrise.php to be loaded, you must add the following to your wp-config.php:
 ```php
-define('SUNRISE', true);
+define( 'SUNRISE', true );
 ```
 
 Finally add your preferred domain into your wp-config.php:
 ```php
-define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
+define( 'MULTISITE_SAME_LEVEL_SUBDOMAINS', true );
 ```
 
 ## Variables
-This forces the tld domain of all created sites to be `client.com` instead than the default domain:
+This forces all created sites to be in the same subdomain as the main site:
 ```php
-define('MULTISITE_CHANGE_SUBDOMAIN_TLD', 'client.com');
+define( 'MULTISITE_SAME_LEVEL_SUBDOMAINS', true );
 ```
-
-## Requirements
-This uses [layershifter/tld-extract](https://github.com/layershifter/TLDExtract) which needs [PHP intl extension](http://php.net/manual/en/book.intl.php).
 
 ## Maintainers
 [Onni Hakala](https://github.com/onnimonni)

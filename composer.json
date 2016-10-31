@@ -1,9 +1,9 @@
 {
-  "name": "devgeniem/wp-multisite-tld-changer",
+  "name": "devgeniem/wp-multisite-same-level-subdomains",
   "type": "wordpress-muplugin",
   "license": "MIT",
-  "description": "This WordPress multisite plugin allows you to create subsites under different domain than the mainsite.",
-  "homepage": "https://github.com/devgeniem/wp-multisite-tld-changer",
+  "description": "This WordPress multisite plugin allows you to create subsites under the same subdomain depth as the main site.",
+  "homepage": "https://github.com/devgeniem/wp-multisite-same-level-subdomains",
   "authors": [
     {
       "name": "Onni Hakala",
@@ -13,11 +13,10 @@
     }
   ],
   "keywords": [
-    "wordpress","multisite","subdomain","alternative","tld"
+    "wordpress", "multisite", "subdomain", "same-level"
   ],
   "require": {
     "php": ">=5.6",
-    "composer/installers": "^v1.0.12",
-    "layershifter/tld-extract": "^1.1"
+    "composer/installers": "^v1.0.12"
   }
 }
