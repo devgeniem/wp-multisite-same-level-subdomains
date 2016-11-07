@@ -20,7 +20,6 @@ class SameLevelSubdomain {
 
     // Only init this plugin once
     static $started = false;
-    static $multisite_tld = '';
 
     /**
      * Adds hooks into WP and creates needed settings
@@ -38,8 +37,8 @@ class SameLevelSubdomain {
             // Init is ready
             self::$started = true;
 
-            // Set multisite cookies into upper level domain
-            if ( ! defined( 'COOKIE_DOMAIN' ) ) {
+            // Set multisite cookies into upper level domain if this site is under the same tld
+            if ( ! defined( 'COOKIE_DOMAIN' ) && self::get_multisite_tld() === self::get_upper_level_domain( $_SERVER['HTTP_HOST'] ) ) {
                 define( 'COOKIE_DOMAIN', '.' . self::get_multisite_tld() );
             }
         }
@@ -91,12 +90,28 @@ class SameLevelSubdomain {
      * @return string - Returns tld from multisite main site
      */
     static function get_multisite_tld() : string {
-        // Check that DOMAIN_CURRENT_SITE contains .
-        if( ( $pos = strpos( DOMAIN_CURRENT_SITE, '.' ) ) !== false ) {
-           return substr( DOMAIN_CURRENT_SITE, $pos + 1 );
+
+        $upper_level_domain = self::get_upper_level_domain( DOMAIN_CURRENT_SITE );
+
+        if( DOMAIN_CURRENT_SITE !== $upper_level_domain ) {
+           return $upper_level_domain;
         } else {
             // This is something like localhost and it can't be used
             throw new Exception("Error: DOMAIN_CURRENT_SITE:{$DOMAIN_CURRENT_SITE} is not valid for same level subdomain");
+        }
+    }
+
+    /**
+     * Returns upper level domain from subdomain
+     * @param string $domain - Valid domain name
+     *
+     * @return - upper level domain or original domain
+     */
+    static private function get_upper_level_domain(string $domain) : string {
+        if ( ( $pos = strpos( $domain, '.' ) ) !== false ) {
+            return substr( $domain, $pos + 1 );
+        } else {
+            return $domain;
         }
     }
 }
